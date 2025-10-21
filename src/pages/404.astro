@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Pagina nu a fost găsită">
+  <section class="relative max-w-4xl mx-auto px-6 py-24 text-center">
+    <!-- Decorative Orbs -->
+    <div aria-hidden="true" class="absolute w-80 h-80 bg-linear-to-br from-indigo-400/20 to-purple-400/20 rounded-full top-0 left-0 blur-3xl animate-pulse"></div>
+    <div aria-hidden="true" class="absolute w-64 h-64 bg-linear-to-br from-pink-400/20 to-orange-400/20 rounded-full bottom-10 right-0 blur-3xl animate-pulse delay-1000"></div>
+
+    <!-- Content -->
+    <div class="group bg-white/80 backdrop-blur-md rounded-3xl p-12 shadow-neumorphic hover:shadow-xl transition-all duration-300">
+      <div class="w-20 h-20 rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-4xl mb-6 mx-auto group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
+        😕
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 bg-linear-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent">
+        404
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        Ups, pagina nu există.
+      </p>
+      <a href="/" class="inline-flex items-center gap-3 bg-linear-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 mt-8">
+        <span>Înapoi acasă</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3M9 21V11a1 1 0 011-1h4a1 1 0 011 1v10"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    /* Neumorphic shadow for a soft, embossed effect */
+    .shadow-neumorphic {
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Floating animation for orbs */
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-20px); }
+    }
+
+    /* Respectă preferința de a reduce animațiile */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-float,
+      .animate-pulse { animation: none !important; }
+      .hover\:scale-105:hover { transform: none !important; }
+    }
+  </style>
+</Layout>

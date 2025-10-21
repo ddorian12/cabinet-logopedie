@@ -1,0 +1,106 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Contact – Programări" description="Contact & programări pentru evaluare și terapie logopedică.">
+  <section class="relative max-w-4xl mx-auto px-6 py-20">
+    <!-- Decorative Orbs -->
+    <div aria-hidden="true" class="absolute w-80 h-80 bg-linear-to-br from-indigo-400/20 to-purple-400/20 rounded-full top-0 left-0 blur-3xl animate-pulse"></div>
+    <div aria-hidden="true" class="absolute w-64 h-64 bg-linear-to-br from-pink-400/20 to-orange-400/20 rounded-full bottom-10 right-0 blur-3xl animate-pulse delay-1000"></div>
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <!-- Label centrat pe rândul lui -->
+      <div
+        class="mx-auto w-max px-5 py-3 rounded-full bg-white/80 backdrop-blur-md
+              text-indigo-600 font-semibold text-sm mb-6 shadow-neumorphic"
+        aria-hidden="true">
+        📞 Contact & programări
+      </div>
+
+      <!-- H1 pe linie separată (block), cu leading & padding pt descender-ul „g” -->
+      <h1
+        class="block text-4xl md:text-5xl font-extrabold
+              bg-linear-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent
+              leading-[1.18] md:leading-[1.12] pb-2">
+        Programează o consultație
+      </h1>
+
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Completează formularul de mai jos și te vom contacta pentru a stabili detaliile.
+      </p>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="group bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-neumorphic hover:shadow-xl transition-all duration-300">
+      <form action="/api/contact" method="POST" class="space-y-6">
+        <!-- Formspree essentials -->
+        <input type="hidden" name="_subject" value="Cerere programare – site" />
+        <input type="hidden" name="_redirect" value="/multumim" />
+        <!-- Honeypot anti-spam (Formspree recomandă _gotcha) -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" />
+
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-900 mb-2">Nume*</label>
+          <input id="name" name="name" required autocomplete="name" class="w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300" />
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-900 mb-2">Email*</label>
+            <input id="email" type="email" name="email" required autocomplete="email" class="w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300" />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-900 mb-2">Telefon</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" class="w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300" />
+          </div>
+        </div>
+
+        <div>
+          <label for="slot" class="block text-sm font-medium text-gray-900 mb-2">Preferință zi/interval</label>
+          <input id="slot" name="slot" placeholder="Ex: Marți după 16:00" autocomplete="off" class="w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300" />
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-900 mb-2">Mesaj*</label>
+          <textarea id="message" name="message" rows="5" required class="w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"></textarea>
+        </div>
+
+        <label class="flex items-start gap-3 text-sm text-gray-600">
+          <input required type="checkbox" name="gdpr" class="mt-1 h-5 w-5 text-indigo-600 border-gray-200 rounded focus:ring-indigo-500" />
+          Sunt de acord cu prelucrarea datelor conform <a class="underline hover:text-indigo-600 transition-colors" href="/politica-confidentialitate">Politicii de confidențialitate</a>.
+        </label>
+
+        <button type="submit" class="inline-flex items-center gap-3 bg-linear-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <span>Trimite</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <style>
+    /* Neumorphic shadow for a soft, embossed effect */
+    .shadow-neumorphic {
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Floating animation for orbs */
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-20px); }
+    }
+
+    /* Respectă preferința de a reduce animațiile */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-float,
+      .animate-pulse { animation: none !important; }
+      .hover\:scale-105:hover { transform: none !important; }
+    }
+  </style>
+</Layout>

@@ -1,11 +1,148 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import { site } from "../site.config";
+const title = `${site.name} – Logoped ${site.city}`;
+const description = site.description;
 ---
 
-<Layout>
-	<Welcome />
+<Layout {title} {description}>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-linear-to-br from-indigo-50 via-purple-50 to-pink-50">
+    <!-- Decorative orbs -->
+    <div aria-hidden="true" class="absolute w-80 h-80 bg-linear-to-br from-purple-400/30 to-pink-400/30 rounded-full top-0 right-0 blur-3xl animate-pulse"></div>
+    <div aria-hidden="true" class="absolute w-64 h-64 bg-linear-to-br from-indigo-400/30 to-blue-400/30 rounded-full bottom-20 left-0 blur-3xl animate-pulse delay-1000"></div>
+
+    <div class="max-w-7xl mx-auto px-6 py-20 md:py-28">
+      <div class="grid md:grid-cols-2 gap-14 items-center">
+        <!-- Copy -->
+        <div class="space-y-8">
+          <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-white/80 backdrop-blur-md text-indigo-700 text-xs md:text-sm font-semibold shadow-neumorphic">
+            <svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <span>Cabinet de încredere în {site.city}</span>
+          </div>
+
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-balance text-gray-900">
+            Evaluare & terapie <span class="bg-linear-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">logopedică</span> pentru toți
+          </h1>
+
+          <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+            Dislexie/disgrafie, întârziere în vorbire, pronunție, bâlbâială, tulburări de limbaj post-AVC. Abordare bazată pe dovezi și planuri personalizate.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            <a href="/contact" class="btn bg-linear-to-r from-indigo-600 to-purple-600 text-white px-7 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+              <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              Programează evaluare
+            </a>
+
+            <a href={`tel:${site.phone.replace(/\s/g,"")}`} aria-label={`Sună la ${site.phone}`} class="btn bg-white/80 backdrop-blur-md text-indigo-700 px-7 py-4 rounded-xl font-semibold shadow-neumorphic hover:shadow-xl hover:scale-105 transition-all duration-300">
+              <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              {site.phone}
+            </a>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-4">
+            {[
+              { icon: "✓", text: "Programări rapide" },
+              { icon: "📋", text: "Raport detaliat" },
+              { icon: "🎯", text: "Plan personalizat" },
+              { icon: "🏠", text: "Ghid pentru acasă" }
+            ].map(item => (
+              <div class="flex items-center gap-3 text-gray-700">
+                <span class="text-2xl md:text-3xl" aria-hidden="true">{item.icon}</span>
+                <span class="text-sm md:text-base font-semibold">{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Visual: speech therapy themed -->
+        <div class="relative">
+          <div class="aspect-square rounded-3xl bg-linear-to-br from-indigo-400 via-purple-400 to-pink-300 shadow-2xl relative overflow-hidden">
+            <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Ilustrație logopedie"
+     class="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#764ba2"/>
+    </linearGradient>
+    <linearGradient id="bubble1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4facfe"/><stop offset="100%" stop-color="#00f2fe"/>
+    </linearGradient>
+    <linearGradient id="bubble2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fa709a"/><stop offset="100%" stop-color="#fee140"/>
+    </linearGradient>
+    <linearGradient id="bubble3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a8edea"/><stop offset="100%" stop-color="#fed6e3"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- fundal pătrat -->
+  <rect width="800" height="800" fill="url(#bgGradient)"/>
+
+  <!-- decorații background (opțional păstrate) -->
+  <circle cx="100" cy="100" r="40" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="700" cy="650" r="60" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="650" cy="140" r="30" fill="rgba(255,255,255,0.12)"/>
+
+  <!-- TOT conținutul vechi (canvas 800x600) centrat în pătratul 800x800 -->
+  <g transform="translate(0,100)">
+    <!-- bulă mare + microfon -->
+    <g transform="translate(200, 120)">
+      <path d="M 0 60 Q 0 0 60 0 L 340 0 Q 400 0 400 60 L 400 180 Q 400 240 340 240 L 120 240 L 80 300 L 90 240 L 60 240 Q 0 240 0 180 Z"
+            fill="url(#bubble1)" filter="url(#glow)"/>
+      <g transform="translate(170, 80)">
+        <ellipse cx="30" cy="30" rx="25" ry="35" fill="white" opacity="0.9"/>
+        <rect x="25" y="65" width="10" height="30" rx="5" fill="white" opacity="0.9"/>
+        <ellipse cx="30" cy="95" rx="20" ry="8" fill="white" opacity="0.9"/>
+        <path d="M -10 30 Q -15 30 -15 25 Q -15 35 -10 35" stroke="white" stroke-width="3" fill="none" opacity="0.7"/>
+        <path d="M 70 30 Q 75 30 75 25 Q 75 35 70 35" stroke="white" stroke-width="3" fill="none" opacity="0.7"/>
+      </g>
+    </g>
+
+    <!-- bula ABC -->
+    <g transform="translate(50, 350)">
+      <ellipse cx="100" cy="80" rx="100" ry="80" fill="url(#bubble2)" filter="url(#glow)"/>
+      <text x="100" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">ABC</text>
+    </g>
+
+    <!-- bula cu unde -->
+    <g transform="translate(500, 300)">
+      <circle cx="120" cy="120" r="100" fill="url(#bubble3)" filter="url(#glow)"/>
+      <g transform="translate(120, 120)">
+        <path d="M -40 0 Q -30 -20 -20 0 T 0 0" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/>
+        <path d="M 0 0 Q 10 -20 20 0 T 40 0" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/>
+      </g>
+    </g>
+  </g>
+</svg>
+
+          </div>
+
+          <!-- Trust/availability chip (replaces 500+ stat) -->
+          <div class="absolute -bottom-8 -left-8 bg-white/90 backdrop-blur-md rounded-3xl shadow-neumorphic p-6 max-w-sm border border-purple-100">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-linear-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white text-2xl" aria-hidden="true">✨</div>
+              <div>
+                <div class="text-lg md:text-xl font-bold text-gray-900">Cabinet nou în {site.city}</div>
+                <div class="text-sm text-gray-600">Locuri disponibile · program flexibil</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /visual -->
+      </div>
+    </div>
+  </section>
+
+  <!-- restul paginii rămâne la fel -->
+  <!-- Services Preview, Why Choose Us, CTA ... (păstrate din versiunea ta curentă) -->
+  <slot />
 </Layout>

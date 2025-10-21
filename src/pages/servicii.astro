@@ -1,0 +1,185 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Servicii – Logopedie" description="Servicii complete: evaluare logopedică, terapie individuală, ghid pentru acasă.">
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-linear-to-br from-indigo-50 via-purple-50 to-pink-50 py-24">
+    <div aria-hidden="true" class="absolute w-96 h-96 bg-linear-to-br from-indigo-400/30 to-purple-400/30 rounded-full top-0 right-0 blur-3xl animate-pulse"></div>
+    <div aria-hidden="true" class="absolute w-80 h-80 bg-linear-to-br from-pink-400/30 to-orange-400/30 rounded-full bottom-10 left-0 blur-3xl animate-pulse delay-1000"></div>
+
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <div class="inline-block px-5 py-3 rounded-full bg-white/80 backdrop-blur-md text-indigo-600 font-semibold text-sm mb-8 shadow-neumorphic" aria-hidden="true">
+        📋 Serviciile noastre
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 bg-linear-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">
+        Servicii complete de logopedie
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        De la evaluare inițială la terapie personalizată și consiliere pentru părinți
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Services -->
+  <section class="max-w-6xl mx-auto px-6 py-20 space-y-12">
+    <!-- Service 1: Evaluare logopedică -->
+    <div class="group bg-white/80 backdrop-blur-md rounded-3xl p-10 shadow-neumorphic hover:shadow-xl transition-all duration-300">
+      <div class="flex flex-col md:flex-row gap-10">
+        <div class="md:w-1/3">
+          <div class="w-24 h-24 rounded-3xl bg-linear-to-br from-indigo-500 to-indigo-600 flex items-center justify-center text-5xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg" aria-hidden="true">
+            🔍
+          </div>
+          <h2 class="text-3xl font-bold mb-3 text-gray-900">Evaluare logopedică</h2>
+          <div class="text-indigo-600 font-semibold text-lg">60–75 minute</div>
+        </div>
+        <div class="md:w-2/3 space-y-6">
+          <p class="text-gray-600 text-lg leading-relaxed">
+            Evaluarea inițială este primul pas către progres. Include anamneză detaliată, observație clinică și teste standardizate adaptate vârstei și nevoilor tale.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-6">
+            {[
+              "Istoric medical și dezvoltare",
+              "Testare articulare și fonetică",
+              "Evaluare limbaj expresiv/receptiv",
+              "Raport detaliat cu recomandări",
+              "Plan de intervenție personalizat",
+              "Consiliere inițială pentru părinți"
+            ].map(item => (
+              <div class="flex items-start gap-4">
+                <svg class="w-7 h-7 text-indigo-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700 text-base font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 2: Terapie logopedică -->
+    <div class="group bg-white/80 backdrop-blur-md rounded-3xl p-10 shadow-neumorphic hover:shadow-xl transition-all duration-300">
+      <div class="flex flex-col md:flex-row gap-10">
+        <div class="md:w-1/3">
+          <div class="w-24 h-24 rounded-3xl bg-linear-to-br from-purple-500 to-purple-600 flex items-center justify-center text-5xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg" aria-hidden="true">
+            💬
+          </div>
+          <h2 class="text-3xl font-bold mb-3 text-gray-900">Terapie logopedică</h2>
+          <div class="text-purple-600 font-semibold text-lg">45–50 minute / ședință</div>
+        </div>
+        <div class="md:w-2/3 space-y-6">
+          <p class="text-gray-600 text-lg leading-relaxed">
+            Ședințe individuale personalizate pentru copii și adulți, cu obiective clare și metode interactive care fac terapia plăcută și eficientă.
+          </p>
+          <div class="bg-linear-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 space-y-4">
+            <h3 class="font-bold text-xl text-gray-900">Domenii de intervenție:</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              {[
+                "Tulburări de articulare",
+                "Întârziere în dezvoltarea vorbirii",
+                "Tulburări de fluență (bâlbâială)",
+                "Dislexie și disgrafie",
+                "Tulburări de limbaj (expresiv/receptiv)",
+                "Recuperare post-AVC",
+                "Dificultăți de înghițire",
+                "Tulburări de voce"
+              ].map(item => (
+                <div class="flex items-center gap-3">
+                  <div class="w-3 h-3 rounded-full bg-linear-to-r from-purple-500 to-indigo-500"></div>
+                  <span class="text-gray-700 text-base">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl border-2 border-indigo-100 p-8">
+            <h3 class="font-bold text-xl text-gray-900 mb-4">Metode și tehnici folosite:</h3>
+            <ul class="space-y-3 text-gray-700 text-base">
+              <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-indigo-500"></div>Jocuri educative interactive</li>
+              <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-indigo-500"></div>Exerciții de articulare și pronunție</li>
+              <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-indigo-500"></div>Tehnici de respirație și ritm</li>
+              <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-indigo-500"></div>Activități pentru dezvoltarea vocabularului</li>
+              <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-indigo-500"></div>Strategii de comunicare funcțională</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 3: Ghid pentru acasă -->
+    <div class="group bg-white/80 backdrop-blur-md rounded-3xl p-10 shadow-neumorphic hover:shadow-xl transition-all duration-300">
+      <div class="flex flex-col md:flex-row gap-10">
+        <div class="md:w-1/3">
+          <div class="w-24 h-24 rounded-3xl bg-linear-to-br from-pink-500 to-pink-600 flex items-center justify-center text-5xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg" aria-hidden="true">
+            📚
+          </div>
+          <h2 class="text-3xl font-bold mb-3 text-gray-900">Ghid pentru acasă</h2>
+          <div class="text-pink-600 font-semibold text-lg">Materiale personalizate</div>
+        </div>
+        <div class="md:w-2/3 space-y-6">
+          <p class="text-gray-600 text-lg leading-relaxed">
+            Materiale și recomandări practice pentru a susține progresul între ședințe, create special pentru nevoile fiecărui client.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-6">
+            {[
+              "Fișe de exerciții personalizate",
+              "Ghiduri practice pentru părinți",
+              "Activități pentru consolidarea vorbirii",
+              "Recomandări pentru rutina zilnică",
+              "Resurse digitale interactive",
+              "Monitorizare progres acasă"
+            ].map(item => (
+              <div class="flex items-start gap-4">
+                <svg class="w-7 h-7 text-pink-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700 text-base font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <div class="relative overflow-hidden rounded-3xl bg-linear-to-br from-indigo-600 via-purple-500 to-pink-400 p-16 text-center text-white shadow-2xl">
+      <div class="relative z-10">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">Începe drumul spre progres</h2>
+        <p class="text-xl mb-10 text-white/90 max-w-3xl mx-auto">
+          Contactează-ne pentru a programa o evaluare sau pentru a afla mai multe despre serviciile noastre.
+        </p>
+        <a href="/contact" class="inline-flex items-center gap-3 bg-white text-indigo-600 px-10 py-5 rounded-xl font-bold text-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <span>Contactează-ne</span>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+      <div aria-hidden="true" class="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-2xl"></div>
+      <div aria-hidden="true" class="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full -ml-32 -mb-32 blur-2xl"></div>
+    </div>
+  </section>
+
+  <style>
+    /* Neumorphic shadow for a soft, embossed effect */
+    .shadow-neumorphic {
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Floating animation for orbs */
+    .animate-float { animation: float 6s ease-in-out infinite; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-20px); }
+    }
+
+    /* Respectă preferința de a reduce animațiile */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-float,
+      .animate-pulse { animation: none !important; }
+      .hover\:scale-105:hover { transform: none !important; }
+    }
+  </style>
+</Layout>

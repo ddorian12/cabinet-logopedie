@@ -9,6 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.14.7"
+    "@astrojs/sitemap": "^3.6.0",
+    "@tailwindcss/vite": "^4.1.15",
+    "astro": "^5.14.7",
+    "resend": "^6.2.1",
+    "tailwindcss": "^4.1.15"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19"
   }
 }

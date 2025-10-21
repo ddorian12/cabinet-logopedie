@@ -1,0 +1,60 @@
+---
+import { site } from "../site.config";
+---
+
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-purple-100/50">
+  <div class="max-w-6xl mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Brand -->
+      <a href="/" class="flex items-center gap-3 font-bold text-lg group" aria-label="Acasă – {{site.name}}">
+        <div class="w-10 h-10 rounded-2xl bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all">
+          <img src="/favicon.svg" alt="" aria-hidden="true" class="w-6 h-6" />
+        </div>
+        <span class="hidden sm:inline bg-linear-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+          {site.name}
+        </span>
+      </a>
+
+      <!-- Mobile menu -->
+      <details class="relative md:hidden">
+        <summary
+          class="list-none cursor-pointer p-2.5 rounded-xl bg-linear-to-br from-purple-50 to-pink-50 ring-2 ring-purple-100 hover:ring-purple-200 transition-all"
+          aria-label="Deschide meniul"
+        >
+          <span class="sr-only">Meniu</span>
+          <div class="w-5 h-0.5 bg-purple-600 mb-1.5 transition-all"></div>
+          <div class="w-5 h-0.5 bg-purple-600 mb-1.5 transition-all"></div>
+          <div class="w-5 h-0.5 bg-purple-600 transition-all"></div>
+        </summary>
+
+        <nav class="absolute right-0 mt-4 w-64 rounded-3xl bg-white/95 backdrop-blur-xl shadow-2xl border border-purple-100 p-4 grid gap-2 z-50">
+          <a class="nav-link block px-4 py-3 hover:bg-purple-50 rounded-xl" href="/servicii">Servicii</a>
+          <a class="nav-link block px-4 py-3 hover:bg-purple-50 rounded-xl" href="/tarife">Tarife</a>
+          <a class="nav-link block px-4 py-3 hover:bg-purple-50 rounded-xl" href="/despre">Despre</a>
+          <a class="nav-link block px-4 py-3 hover:bg-purple-50 rounded-xl" href="/contact">Contact</a>
+          <div class="h-px bg-linear-to-r from-transparent via-purple-200 to-transparent my-2" aria-hidden="true"></div>
+          <a href="/contact" class="btn btn-primary w-full">
+            <span>Programează-te</span>
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+        </nav>
+      </details>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="nav-link" href="/servicii">Servicii</a>
+        <a class="nav-link" href="/tarife">Tarife</a>
+        <a class="nav-link" href="/despre">Despre</a>
+        <a class="nav-link" href="/contact">Contact</a>
+        <a href="/contact" class="btn btn-primary">
+          <span>Programează-te</span>
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>

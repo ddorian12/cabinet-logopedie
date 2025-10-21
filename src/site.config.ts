@@ -12,8 +12,8 @@ export type SiteConfig = {
 export const site: SiteConfig = {
   name: "Cabinet Individual de Logopedie",
   url: "https://psihopedagog-elena.ro",
-  phone: "+40 7xx xxx xxx",
-  address: "Str. Exemplu 10, Iași",
+  phone: "+40 799854533",
+  address: "Str. Bld. Dimitrie Cantemir, nr. 3, Iași",
   city: "Iași",
   country: "RO",
   hours: "Mo-Fr 09:00-19:00",

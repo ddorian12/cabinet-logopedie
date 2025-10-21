@@ -14,7 +14,10 @@ import { site } from "../site.config";
       <div class="inline-block px-5 py-3 rounded-full bg-white/80 backdrop-blur-md text-indigo-600 font-semibold text-sm mb-6 shadow-neumorphic">
         🌟 Despre noi
       </div>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 bg-linear-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent">
+      <!-- FIX: leading + pb + tracking pentru a nu tăia descender-ele -->
+      <h1
+        class="text-4xl md:text-5xl font-extrabold mb-6 leading-[1.2] pb-1 tracking-tight text-balance bg-linear-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent"
+      >
         Cabinetul tău de logopedie
       </h1>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -75,7 +78,7 @@ import { site } from "../site.config";
 
           <div class="mt-4">
             <div class="font-semibold text-lg text-gray-900">D-ra Elena Morcov-Pahoncea</div>
-            <div class="text-sm text-purple-700 font-medium">Psihopedagog &amp; Consilier educațional</div>
+            <div class="text-sm text-purple-700 font-medium">PsihoPupiPuki✨ &amp; Consilier educațional</div>
           </div>
 
           <p class="text-gray-600 text-sm leading-relaxed mt-4">

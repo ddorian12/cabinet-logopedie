@@ -12,9 +12,12 @@ import Layout from "../layouts/Layout.astro";
       <div class="w-20 h-20 rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-4xl mb-6 mx-auto group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
         🎉
       </div>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 bg-linear-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent">
+
+      <!-- FIX: leading/padding/tracking pentru a nu tăia descender-ele -->
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-[1.2] pb-1 tracking-tight text-balance bg-linear-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent">
         Mulțumim!
       </h1>
+
       <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
         Mesajul a fost trimis. Te contactăm în cel mai scurt timp.
       </p>

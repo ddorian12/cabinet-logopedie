@@ -3,6 +3,8 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
+    "lib": ["ES2022", "DOM"],
+    "strict": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]

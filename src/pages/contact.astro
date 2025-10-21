@@ -9,22 +9,12 @@ import Layout from "../layouts/Layout.astro";
 
     <!-- Header -->
     <div class="text-center mb-12">
-      <!-- Label centrat pe rândul lui -->
-      <div
-        class="mx-auto w-max px-5 py-3 rounded-full bg-white/80 backdrop-blur-md
-              text-indigo-600 font-semibold text-sm mb-6 shadow-neumorphic"
-        aria-hidden="true">
+      <div class="mx-auto w-max px-5 py-3 rounded-full bg-white/80 backdrop-blur-md text-indigo-600 font-semibold text-sm mb-6 shadow-neumorphic" aria-hidden="true">
         📞 Contact & programări
       </div>
-
-      <!-- H1 pe linie separată (block), cu leading & padding pt descender-ul „g” -->
-      <h1
-        class="block text-4xl md:text-5xl font-extrabold
-              bg-linear-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent
-              leading-[1.18] md:leading-[1.12] pb-2">
+      <h1 class="block text-4xl md:text-5xl font-extrabold bg-linear-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent leading-[1.18] md:leading-[1.12] pb-2">
         Programează o consultație
       </h1>
-
       <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
         Completează formularul de mai jos și te vom contacta pentru a stabili detaliile.
       </p>
@@ -32,45 +22,111 @@ import Layout from "../layouts/Layout.astro";
 
     <!-- Contact Form -->
     <div class="group bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-neumorphic hover:shadow-xl transition-all duration-300">
-      <form action="/api/contact" method="POST" class="space-y-6">
-        <!-- Formspree essentials -->
+      <form id="contact-form" action="/api/contact" method="POST" class="space-y-6" novalidate>
+        <!-- anti-spam & meta -->
         <input type="hidden" name="_subject" value="Cerere programare – site" />
         <input type="hidden" name="_redirect" value="/multumim" />
-        <!-- Honeypot anti-spam (Formspree recomandă _gotcha) -->
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" />
 
+        <!-- Nume -->
         <div>
           <label for="name" class="block text-sm font-medium text-gray-900 mb-2">Nume*</label>
-          <input id="name" name="name" required autocomplete="name" class="w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300" />
+          <input
+            id="name"
+            name="name"
+            required
+            autocomplete="name"
+            inputmode="text"
+            pattern="^[A-Za-zĂÂÎȘȚăâîșț \-']{2,}$"
+            title="Introduceți cel puțin 2 caractere: litere (inclusiv diacritice), spații, cratimă sau apostrof."
+            class="peer w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"
+            aria-describedby="name-error"
+          />
+          <p id="name-error" class="mt-2 text-sm text-red-600 hidden">Introduceți un nume valid (minim 2 caractere, doar litere și spații).</p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
+          <!-- Email -->
           <div>
             <label for="email" class="block text-sm font-medium text-gray-900 mb-2">Email*</label>
-            <input id="email" type="email" name="email" required autocomplete="email" class="w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300" />
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
+              title="Folosiți un format de email valid, ex: nume@domeniu.ro"
+              class="peer w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"
+              aria-describedby="email-error"
+            />
+            <p id="email-error" class="mt-2 text-sm text-red-600 hidden">Introduceți un email valid (ex: nume@domeniu.ro).</p>
           </div>
+
+          <!-- Telefon -->
           <div>
             <label for="phone" class="block text-sm font-medium text-gray-900 mb-2">Telefon</label>
-            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" class="w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300" />
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              inputmode="tel"
+              autocomplete="tel"
+              pattern="^\+?[0-9\s().\-]{7,15}$"
+              title="Doar cifre și simboluri + ( ) - . spații, 7–15 caractere."
+              class="peer w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"
+              aria-describedby="phone-error"
+            />
+            <p id="phone-error" class="mt-2 text-sm text-red-600 hidden">Număr de telefon invalid (doar cifre și + ( ) - . spații, 7–15 caractere).</p>
           </div>
         </div>
 
+        <!-- Interval preferat -->
         <div>
           <label for="slot" class="block text-sm font-medium text-gray-900 mb-2">Preferință zi/interval</label>
-          <input id="slot" name="slot" placeholder="Ex: Marți după 16:00" autocomplete="off" class="w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300" />
+          <input
+            id="slot"
+            name="slot"
+            placeholder="*Vă rugăm verificați programul de pe pagina 'Despre'*"
+            autocomplete="off"
+            class="w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"
+          />
         </div>
 
+        <!-- Mesaj -->
         <div>
           <label for="message" class="block text-sm font-medium text-gray-900 mb-2">Mesaj*</label>
-          <textarea id="message" name="message" rows="5" required class="w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"></textarea>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            minlength="10"
+            title="Scrieți un mesaj de minim 10 caractere."
+            class="peer w-full rounded-xl border border-gray-200 p-4 bg-white/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"
+            aria-describedby="message-error"
+          ></textarea>
+          <p id="message-error" class="mt-2 text-sm text-red-600 hidden">Mesajul trebuie să aibă cel puțin 10 caractere.</p>
         </div>
 
+        <!-- GDPR -->
         <label class="flex items-start gap-3 text-sm text-gray-600">
-          <input required type="checkbox" name="gdpr" class="mt-1 h-5 w-5 text-indigo-600 border-gray-200 rounded focus:ring-indigo-500" />
-          Sunt de acord cu prelucrarea datelor conform <a class="underline hover:text-indigo-600 transition-colors" href="/politica-confidentialitate">Politicii de confidențialitate</a>.
+          <input
+            required
+            type="checkbox"
+            name="gdpr"
+            class="mt-1 h-5 w-5 text-indigo-600 border-gray-200 rounded focus:ring-indigo-500"
+            aria-describedby="gdpr-error"
+          />
+          <span>
+            Sunt de acord cu prelucrarea datelor conform
+            <a class="underline hover:text-indigo-600 transition-colors" href="/politica-confidentialitate">Politicii de confidențialitate</a>.
+          </span>
         </label>
+        <p id="gdpr-error" class="mt-2 text-sm text-red-600 hidden">Trebuie să accepți politica de confidențialitate.</p>
 
-        <button type="submit" class="inline-flex items-center gap-3 bg-linear-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+        <!-- Submit -->
+        <button id="submit-btn" type="submit" class="inline-flex items-center gap-3 bg-linear-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
           <span>Trimite</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -81,26 +137,120 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <style>
-    /* Neumorphic shadow for a soft, embossed effect */
     .shadow-neumorphic {
       box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.7);
     }
-
-    /* Floating animation for orbs */
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-20px); }
-    }
-
-    /* Respectă preferința de a reduce animațiile */
     @media (prefers-reduced-motion: reduce) {
-      .animate-float,
       .animate-pulse { animation: none !important; }
       .hover\:scale-105:hover { transform: none !important; }
     }
   </style>
+
+  <!-- Validări client-side în JavaScript pur (fără TS adnotations) -->
+  <script is:inline>
+    (function () {
+      const form = document.querySelector('form[action="/api/contact"]');
+      const submitBtn = document.querySelector('#submit-btn');
+
+      if (!(form instanceof HTMLFormElement)) {
+        console.warn('Formularul de contact nu a fost găsit.');
+        return;
+      }
+
+      // elemente
+      const nameInput   = document.getElementById('name');
+      const emailInput  = document.getElementById('email');
+      const phoneInput  = document.getElementById('phone');
+      const messageArea = document.getElementById('message');
+      const gdprBox     = form.querySelector('input[name="gdpr"]');
+
+      // helpers
+      function showError(input, errorId, text) {
+        input.classList.remove('border-gray-200');
+        input.classList.add('border-red-500');
+        const p = document.getElementById(errorId);
+        if (p) p.classList.remove('hidden');
+        if (typeof input.setCustomValidity === 'function') input.setCustomValidity(text || 'Câmp invalid');
+      }
+
+      function clearError(input, errorId) {
+        input.classList.remove('border-red-500');
+        input.classList.add('border-gray-200');
+        const p = document.getElementById(errorId);
+        if (p) p.classList.add('hidden');
+        if (typeof input.setCustomValidity === 'function') input.setCustomValidity('');
+      }
+
+      // validatori
+      function vName(el) {
+        const ok = /^[A-Za-zÀ-ÖØ-öø-ÿĂÂÎȘȚăâîșț \-']{2,}$/.test(el.value.trim());
+        ok ? clearError(el, 'name-error') : showError(el, 'name-error', 'Te rugăm introdu un nume valid (minim 2 caractere).');
+        return ok;
+      }
+
+      function vEmail(el) {
+        const ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());
+        ok ? clearError(el, 'email-error') : showError(el, 'email-error', 'Te rugăm introdu un email valid (ex: nume@domeniu.ro).');
+        return ok;
+      }
+
+      function vPhone(el) {
+        if (!el.value.trim()) { clearError(el, 'phone-error'); return true; } // opțional
+        const ok = /^\+?[0-9\s().\-]{7,15}$/.test(el.value.trim());
+        ok ? clearError(el, 'phone-error') : showError(el, 'phone-error', 'Telefon invalid (7–15 caractere).');
+        return ok;
+      }
+
+      function vMessage(el) {
+        const ok = el.value.trim().length >= 10;
+        ok ? clearError(el, 'message-error') : showError(el, 'message-error', 'Mesajul trebuie să aibă cel puțin 10 caractere.');
+        return ok;
+      }
+
+      function vGDPR() {
+        const ok = gdprBox && gdprBox.checked;
+        if (gdprBox && typeof gdprBox.setCustomValidity === 'function') {
+          gdprBox.setCustomValidity(ok ? '' : 'Trebuie să accepți prelucrarea datelor.');
+        }
+        const p = document.getElementById('gdpr-error');
+        if (p) p.classList[ok ? 'add' : 'remove']('hidden');
+        return !!ok;
+      }
+
+      // feedback live
+      nameInput?.addEventListener('input',   () => vName(nameInput));
+      emailInput?.addEventListener('input',  () => vEmail(emailInput));
+      phoneInput?.addEventListener('input',  () => vPhone(phoneInput));
+      messageArea?.addEventListener('input', () => vMessage(messageArea));
+      gdprBox?.addEventListener('change',    () => vGDPR());
+
+      // blochează caractere nepermise la telefon
+      phoneInput?.addEventListener('beforeinput', (ev) => {
+        if (ev.data && /[^\d+\s().-]/.test(ev.data)) ev.preventDefault();
+      });
+
+      // submit
+      form.addEventListener('submit', (e) => {
+        const ok =
+          vName(nameInput) &&
+          vEmail(emailInput) &&
+          vPhone(phoneInput) &&
+          vMessage(messageArea) &&
+          vGDPR();
+
+        if (!ok) {
+          e.preventDefault();
+          const firstInvalid = [nameInput, emailInput, phoneInput, messageArea, gdprBox]
+            .find(el => el && typeof el.checkValidity === 'function' && !el.checkValidity());
+          firstInvalid?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (typeof form.reportValidity === 'function') form.reportValidity(); // ✅ sigur
+          return;
+        }
+
+        // UX: dezactivează butonul pe durata submit-ului
+        submitBtn?.setAttribute('disabled', 'true');
+        submitBtn?.classList.add('opacity-70', 'cursor-not-allowed');
+      });
+    })();
+  </script>
 </Layout>

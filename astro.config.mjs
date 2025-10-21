@@ -1,11 +1,13 @@
-// @ts-check
+// astro.config.ts
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel/serverless';
 
-// https://astro.build/config
 export default defineConfig({
-  vite: { plugins: [tailwindcss()] },
   site: 'https://exemplu.ro',
-  integrations: [sitemap()]
+  output: 'server',
+  adapter: vercel({}),             // ✅ trece un obiect (poate fi gol)
+  vite: { plugins: [tailwindcss()] },
+  integrations: [sitemap()],
 });

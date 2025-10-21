@@ -13,6 +13,7 @@ const description = site.description;
     <div aria-hidden="true" class="absolute w-64 h-64 bg-linear-to-br from-indigo-400/30 to-blue-400/30 rounded-full bottom-20 left-0 blur-3xl animate-pulse delay-1000"></div>
 
     <div class="max-w-7xl mx-auto px-6 py-20 md:py-28">
+      <!-- Rândul principal: text + vizual -->
       <div class="grid md:grid-cols-2 gap-14 items-center">
         <!-- Copy -->
         <div class="space-y-8">
@@ -46,87 +47,68 @@ const description = site.description;
               {site.phone}
             </a>
           </div>
-
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-4">
-            {[
-              { icon: "✓", text: "Programări rapide" },
-              { icon: "📋", text: "Raport detaliat" },
-              { icon: "🎯", text: "Plan personalizat" },
-              { icon: "🏠", text: "Ghid pentru acasă" }
-            ].map(item => (
-              <div class="flex items-center gap-3 text-gray-700">
-                <span class="text-2xl md:text-3xl" aria-hidden="true">{item.icon}</span>
-                <span class="text-sm md:text-base font-semibold">{item.text}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
-        <!-- Visual: speech therapy themed -->
+        <!-- Visual -->
         <div class="relative">
           <div class="aspect-square rounded-3xl bg-linear-to-br from-indigo-400 via-purple-400 to-pink-300 shadow-2xl relative overflow-hidden">
             <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"
-     role="img" aria-label="Ilustrație logopedie"
-     class="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid meet">
-  <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#764ba2"/>
-    </linearGradient>
-    <linearGradient id="bubble1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4facfe"/><stop offset="100%" stop-color="#00f2fe"/>
-    </linearGradient>
-    <linearGradient id="bubble2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fa709a"/><stop offset="100%" stop-color="#fee140"/>
-    </linearGradient>
-    <linearGradient id="bubble3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#a8edea"/><stop offset="100%" stop-color="#fed6e3"/>
-    </linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-  </defs>
+                 role="img" aria-label="Ilustrație logopedie"
+                 class="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#764ba2"/>
+                </linearGradient>
+                <linearGradient id="bubble1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#4facfe"/><stop offset="100%" stop-color="#00f2fe"/>
+                </linearGradient>
+                <linearGradient id="bubble2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fa709a"/><stop offset="100%" stop-color="#fee140"/>
+                </linearGradient>
+                <linearGradient id="bubble3" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#a8edea"/><stop offset="100%" stop-color="#fed6e3"/>
+                </linearGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
 
-  <!-- fundal pătrat -->
-  <rect width="800" height="800" fill="url(#bgGradient)"/>
+              <!-- fundal pătrat -->
+              <rect width="800" height="800" fill="url(#bgGradient)"/>
+              <!-- decorații -->
+              <circle cx="100" cy="100" r="40" fill="rgba(255,255,255,0.1)"/>
+              <circle cx="700" cy="650" r="60" fill="rgba(255,255,255,0.08)"/>
+              <circle cx="650" cy="140" r="30" fill="rgba(255,255,255,0.12)"/>
 
-  <!-- decorații background (opțional păstrate) -->
-  <circle cx="100" cy="100" r="40" fill="rgba(255,255,255,0.1)"/>
-  <circle cx="700" cy="650" r="60" fill="rgba(255,255,255,0.08)"/>
-  <circle cx="650" cy="140" r="30" fill="rgba(255,255,255,0.12)"/>
+              <!-- conținutul ilustratiei -->
+              <g transform="translate(0,100)">
+                <g transform="translate(200, 120)">
+                  <path d="M 0 60 Q 0 0 60 0 L 340 0 Q 400 0 400 60 L 400 180 Q 400 240 340 240 L 120 240 L 80 300 L 90 240 L 60 240 Q 0 240 0 180 Z"
+                        fill="url(#bubble1)" filter="url(#glow)"/>
+                  <g transform="translate(170, 80)">
+                    <ellipse cx="30" cy="30" rx="25" ry="35" fill="white" opacity="0.9"/>
+                    <rect x="25" y="65" width="10" height="30" rx="5" fill="white" opacity="0.9"/>
+                    <ellipse cx="30" cy="95" rx="20" ry="8" fill="white" opacity="0.9"/>
+                    <path d="M -10 30 Q -15 30 -15 25 Q -15 35 -10 35" stroke="white" stroke-width="3" fill="none" opacity="0.7"/>
+                    <path d="M 70 30 Q 75 30 75 25 Q 75 35 70 35" stroke="white" stroke-width="3" fill="none" opacity="0.7"/>
+                  </g>
+                </g>
 
-  <!-- TOT conținutul vechi (canvas 800x600) centrat în pătratul 800x800 -->
-  <g transform="translate(0,100)">
-    <!-- bulă mare + microfon -->
-    <g transform="translate(200, 120)">
-      <path d="M 0 60 Q 0 0 60 0 L 340 0 Q 400 0 400 60 L 400 180 Q 400 240 340 240 L 120 240 L 80 300 L 90 240 L 60 240 Q 0 240 0 180 Z"
-            fill="url(#bubble1)" filter="url(#glow)"/>
-      <g transform="translate(170, 80)">
-        <ellipse cx="30" cy="30" rx="25" ry="35" fill="white" opacity="0.9"/>
-        <rect x="25" y="65" width="10" height="30" rx="5" fill="white" opacity="0.9"/>
-        <ellipse cx="30" cy="95" rx="20" ry="8" fill="white" opacity="0.9"/>
-        <path d="M -10 30 Q -15 30 -15 25 Q -15 35 -10 35" stroke="white" stroke-width="3" fill="none" opacity="0.7"/>
-        <path d="M 70 30 Q 75 30 75 25 Q 75 35 70 35" stroke="white" stroke-width="3" fill="none" opacity="0.7"/>
-      </g>
-    </g>
+                <g transform="translate(50, 350)">
+                  <ellipse cx="100" cy="80" rx="100" ry="80" fill="url(#bubble2)" filter="url(#glow)"/>
+                  <text x="100" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">ABC</text>
+                </g>
 
-    <!-- bula ABC -->
-    <g transform="translate(50, 350)">
-      <ellipse cx="100" cy="80" rx="100" ry="80" fill="url(#bubble2)" filter="url(#glow)"/>
-      <text x="100" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">ABC</text>
-    </g>
-
-    <!-- bula cu unde -->
-    <g transform="translate(500, 300)">
-      <circle cx="120" cy="120" r="100" fill="url(#bubble3)" filter="url(#glow)"/>
-      <g transform="translate(120, 120)">
-        <path d="M -40 0 Q -30 -20 -20 0 T 0 0" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/>
-        <path d="M 0 0 Q 10 -20 20 0 T 40 0" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/>
-      </g>
-    </g>
-  </g>
-</svg>
-
+                <g transform="translate(500, 300)">
+                  <circle cx="120" cy="120" r="100" fill="url(#bubble3)" filter="url(#glow)"/>
+                  <g transform="translate(120, 120)">
+                    <path d="M -40 0 Q -30 -20 -20 0 T 0 0" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/>
+                    <path d="M 0 0 Q 10 -20 20 0 T 40 0" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
           </div>
 
-          <!-- Trust/availability chip (replaces 500+ stat) -->
+          <!-- Trust/availability chip -->
           <div class="absolute -bottom-8 -left-8 bg-white/90 backdrop-blur-md rounded-3xl shadow-neumorphic p-6 max-w-sm border border-purple-100">
             <div class="flex items-center gap-4">
               <div class="w-12 h-12 rounded-2xl bg-linear-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white text-2xl" aria-hidden="true">✨</div>
@@ -139,10 +121,25 @@ const description = site.description;
         </div>
         <!-- /visual -->
       </div>
+
+      <!-- Features (mutat dedesubt) -->
+      <div class="mt-10 md:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-5">
+        {[
+          { icon: "✓", text: "Programări rapide" },
+          { icon: "📋", text: "Raport detaliat" },
+          { icon: "🎯", text: "Plan personalizat" },
+          { icon: "🏠", text: "Ghid pentru acasă" }
+        ].map(item => (
+          <div class="flex items-center gap-3 text-gray-700">
+            <span class="text-2xl md:text-3xl" aria-hidden="true">{item.icon}</span>
+            <span class="text-sm md:text-base font-semibold">{item.text}</span>
+          </div>
+        ))}
+      </div>
+      <!-- /Features -->
     </div>
   </section>
 
   <!-- restul paginii rămâne la fel -->
-  <!-- Services Preview, Why Choose Us, CTA ... (păstrate din versiunea ta curentă) -->
   <slot />
 </Layout>
